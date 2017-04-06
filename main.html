@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>EaZyRx</title>
+	<!--update view based on the device-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--get jquery mobile libraries and css-->
+
+
+	<link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="purple.min.css" />
+	<link rel="stylesheet" href="jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+	<div data-role="page" id="login" data-theme="a">
+		<div data-role="main" class="ui-content" data-theme="a">
+			<h1>EaZyRx</h1>
+			<p class="bold"> Login as </p>
+			<ul data-role="controlgroup" data-type="horizontal" class="localnav">
+				<li><a href="#login" data-role="button" data-transition="fade" class="ui-btn-active">Patient</a></li>
+				<li><a href="#login2" data-role="button" data-transition="fade">Pharmacist</a></li>
+			</ul>
+			<form method="post" action="#patient_home">
+				<div class="ui-field-contain">
+					<input type="text" name="fullname" id="fullname" placeholder="Username">
+					<input type="password" name="password" id="password" placeholder="Password">
+				</div>
+				<a href="#patient_home" data-inline="true" class="small" data-role="button">Login</a>
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed" class="cent">
+			<p> Don't have an account? <a href="#patient_home">Sign Up.</a> </p>
+		</div>
+		<p> Forgot your password? <a href="#manage_appt">Retrieve here</a> </p>
+	</div>
+
+	<div data-role="page" id="login2" data-theme="a">
+		<div data-role="main" class="ui-content" data-theme="a">
+			<h1>EaZyRx</h1>
+			<p class="bold"> Login as </p>
+			<ul data-role="controlgroup" data-type="horizontal" class="localnav">
+				<li><a href="#login" data-role="button" data-transition="fade">Patient</a></li>
+				<li><a href="#login2" data-role="button" data-transition="fade" class="ui-btn-active">Pharmacist</a></li>
+			</ul>
+			<form method="post" action="#patient_home">
+				<div class="ui-field-contain">
+					<input type="text" name="fullname" id="fullname" placeholder="Username">
+					<input type="password" name="password" id="password" placeholder="Password">
+				</div>
+				<a href="#pharm_home" data-inline="true" class="small" data-role="button">Login</a>
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed" class="cent">
+			<p> Don't have an account? <a href="#patient_home">Sign Up.</a> </p>
+		</div>
+		<p> Forgot your password? <a href="#manage_appt">Retrieve here</a> </p>
+	</div>
+
+	<div data-role="page" id="patient_home">
+		<h1>EaZyRx</h1>
+		<div data-role="content">
+			<a href="#refill" class="ui-btn">Refill/Fill</a>
+			<a href="#see_rx" class="ui-btn">See Prescriptions</a>
+			<a href="#payment" class="ui-btn">Payment</a>
+			<a href="#appointments" class="ui-btn">Appointments</a>
+			<a href="#pickups" class="ui-btn">Pickups</a>
+			<a href="#insurance" class="ui-btn">Insurance</a>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#patient_home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+					<li><a href="#" class="ui-btn ui-icon-star ui-btn-icon-left">Feedback</a></li>
+					<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left">Contact</a></li>
+					<li><a href="#login" class="ui-btn ui-icon-lock ui-btn-icon-left">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="pharm_home">
+		<h1>EaZyRx</h1>
+		<div data-role="content">
+			<a href="#manage_appt" class="ui-btn">Manage Appointments</a>
+			<a href="#process_rx" class="ui-btn">Process Refills</a>
+			<a href="#manage_pickups" class="ui-btn">Manage Pickups</a>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#patient_home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+					<li><a href="#" class="ui-btn ui-icon-star ui-btn-icon-left">Feedback</a></li>
+					<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left">Contact</a></li>
+					<li><a href="#login" class="ui-btn ui-icon-lock ui-btn-icon-left">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="refill">
+		<div id="purplediv">
+			<p> Fill Prescriptions </p>
+		</div>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#refill" class="ui-btn-active ui-state-persist">Scan It</a></li>
+				<li><a href="#refill2">Manual Entry</a></li>
+			</ul>
+		</div>
+		<div data-role="content">
+			<img src="camera.png" />
+			<div class="img_caption">Capture Barcode with Camera</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#patient_home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+					<li><a href="#" class="ui-btn ui-icon-star ui-btn-icon-left">Feedback</a></li>
+					<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left">Contact</a></li>
+					<li><a href="#login" class="ui-btn ui-icon-lock ui-btn-icon-left">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="refill2">
+		<div id="purplediv">
+			<p> Fill Prescriptions </p>
+		</div>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#refill">Scan It</a></li>
+				<li><a href="#refill2" class="ui-btn-active ui-state-persist">Manual Entry</a></li>
+			</ul>
+		</div>
+		<div data-role="content">
+			<form method="post" action="">
+				<label for="date">Date of Issue</label>
+				<input type="date" name="date" id="date">
+				<label for="doctor">Practitioner's Name</label>
+				<input type="text" name="doctor" id="doctor" placeholder="Dr. Joe Smith">
+				<label for="date">Drug Name</label>
+				<input type="text" name="drug" id="drug" placeholder="Asmanex">
+				<label for="dosage">Dosage</label>
+				<input type="text" name="dosage" id="dosage" placeholder="220mcg; 1 puff daily">
+				<input type="submit" value="Submit Request">
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#patient_home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+					<li><a href="#" class="ui-btn ui-icon-star ui-btn-icon-left">Feedback</a></li>
+					<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left">Contact</a></li>
+					<li><a href="#login" class="ui-btn ui-icon-lock ui-btn-icon-left">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="see_rx">
+		<div id="purplediv">
+			<p> See Prescriptions </p>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview" data-inset="true">
+				<li>
+					<a href="#">
+						<img src="adderall.png">
+						<h3>Adderall</h3>
+						<p>Rx#: 45853 <br> # of Refills: 1</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="vicodin.png">
+						<h3>Vicodin</h3>
+						<p>Rx#: 87854 <br> # of Refills: 0</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="asmanex.png">
+						<h3>Asmanex</h3>
+						<p>Rx#: 67423 <br> # of Refills: 3</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="advair.png">
+						<h3>Advair</h3>
+						<p>Rx#: 83214 <br> # of Refills: 0</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#patient_home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+					<li><a href="#" class="ui-btn ui-icon-star ui-btn-icon-left">Feedback</a></li>
+					<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left">Contact</a></li>
+					<li><a href="#login" class="ui-btn ui-icon-lock ui-btn-icon-left">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="payment">
+		<div id="purplediv">
+			<p> Payment </p>
+		</div>
+		<div data-role="content">
+			<form method="post" action="">
+				<label style="text-align: left; font-weight: bold;" for="date">Active:</label>
+				<img src="Mastercard.png" alt="Mastercard" width="150px">
+				<label style="text-align: left; font-weight: bold;" for="date">Inactive:</label>
+				<img src="Visa.png" alt="Visa" width="150px">
+				<input type="submit" data-inline="true" id value="Add Payment Method">
+			</form>
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#patient_home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+					<li><a href="#" class="ui-btn ui-icon-star ui-btn-icon-left">Feedback</a></li>
+					<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left">Contact</a></li>
+					<li><a href="#login" class="ui-btn ui-icon-lock ui-btn-icon-left">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div data-role="page" id="appointments">
+		<div id="purplediv">
+			<p> Setup an Appointment </p>
+		</div>
+		<div data-role="content">
+			<form method="post" action="">
+				<label style="text-align: left; font-weight: bold;" for="date">Name:</label>
+				<input type="text" name="name" id="name" placeholder="John Doe">
+				<label style="text-align: left; font-weight: bold;" for="date">Date:</label>
+				<input type="date" name="date" id="date">
+				<form>
+					<div class="ui-field-contain">
+						<label style="text-align: left; font-weight: bold;" for="select-native-1">Select a Pharmacist:</label>
+						<select name="select-native-1" id="select-native-1" data-mini="true">
+        					<option value="1">Jane Smith</option>
+        					<option value="2">Ronald McDonald</option>
+        					<option value="3">Barack Obama</option>
+        					<option value="4">Joe Black</option>
+    					</select>
+					</div>
+				</form>
+				<div data-role="fieldcontain">
+					<label style="text-align: left; font-weight: bold;" for="textarea">Reason for visit:</label>
+					<textarea name="textarea" id="textarea" placeholder="i.e: Need to talk about medicine symptoms"></textarea>
+				</div>
+				<input type="submit" data-inline="true" data-wrapper-class="small" id value="Submit">
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#patient_home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+					<li><a href="#" class="ui-btn ui-icon-star ui-btn-icon-left">Feedback</a></li>
+					<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left">Contact</a></li>
+					<li><a href="#login" class="ui-btn ui-icon-lock ui-btn-icon-left">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="pickups">
+		<div id="purplediv">
+			<p> Pickups </p>
+		</div>
+		<div data-role="content">
+			<form method="post" action="">
+				<div class="ui-field-contain">
+					<label style="text-align: left; font-weight: bold;" for="select-native-1">Medicine:</label>
+					<select name="select-native-1" id="select-native-1" data-mini="true">
+                  <option value="1">Adderall</option>
+                  <option value="2">Vicodin</option>
+                  <option value="3">Asmanex</option>
+                  <option value="4">Advair</option>
+              </select>
+					<label style="text-align: left; font-weight: bold;" for="select-native-2">Pharmacy:</label>
+					<select name="select-native-2" id="select-native-2" data-mini="true">
+                  <option value="1">CVS Cambridge</option>
+                  <option value="2">CVS Central</option>
+                  <option value="3">Walgreens Central</option>
+                  <option value="4">HUHS</option>
+              </select>
+					<label style="text-align: left; font-weight: bold;" for="select-native-3">Pick Up Time:</label>
+					<select name="select-native-3" id="select-native-3" data-mini="true">
+                  <option value="1">Wednesday, 2PM</option>
+                  <option value="2">Wednesday, 4PM</option>
+                  <option value="3">Wednesday, 7PM</option>
+                  <option value="4">Thursday, 10AM</option>
+              </select>
+				</div>
+				<input type="submit" data-inline="true" id value="Request Code">
+			</form>
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#patient_home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+					<li><a href="#" class="ui-btn ui-icon-star ui-btn-icon-left">Feedback</a></li>
+					<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left">Contact</a></li>
+					<li><a href="#login" class="ui-btn ui-icon-lock ui-btn-icon-left">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div data-role="page" id="insurance">
+		<div id="purplediv">
+			<p> Insurance </p>
+		</div>
+		<div data-role="content">
+			<form method="post" action="">
+				<label style="text-align: left; font-weight: bold;" for="date">Active:</label>
+				<img src="Blue Cross.png" alt="Blue Cross" width="150px">
+				<label style="text-align: left; font-weight: bold;" for="date">Inactive:</label>
+				<img src="HAP.png" alt="HAP" width="150px">
+				<input type="submit" data-inline="true" id value="Add Insurance Card">
+			</form>
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#patient_home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+					<li><a href="#" class="ui-btn ui-icon-star ui-btn-icon-left">Feedback</a></li>
+					<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left">Contact</a></li>
+					<li><a href="#login" class="ui-btn ui-icon-lock ui-btn-icon-left">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="manage_appt">
+		<div id="purplediv">
+			<p> Manage Appointments </p>
+		</div>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#manage_appt" class="ui-btn-active ui-state-persist">Recent Appts</a></li>
+				<li><a href="#manage_appt2">Completed</a></li>
+				<li><a href="#manage_appt3">Current Appts</a></li>
+			</ul>
+		</div>
+		<div data-role="content">
+			<div data-role="fieldcontain">
+				<ul data-role="listview" data-inset="true">
+					<li>
+						<a href="#">
+							<img src="me.jpg" />
+							<h3> Danielle Okezie</h3>
+							<p>
+								Date Requested: 3/29/17 5pm
+							</p>
+							<p>
+								Reason for visit: <br>
+
+							</p>
+							<p class="blue">
+								More info
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="adesola.jpg" />
+							<h3> Adesola Sanusi</h3>
+							<p>
+								Date Requested: 3/29/17 2:30pm
+							</p>
+							<p>
+								Reason for visit:
+							</p>
+							<p class="blue">
+								More info
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="stan.jpg" />
+							<h3> Stan Matoreva</h3>
+							<p>
+								Date Requested: 3/29/17 10:00am
+							</p>
+							<p>
+								Reason for visit:
+							</p>
+							<p class="blue">
+								More info
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="stephen.jpg" />
+							<h3> Stephen Xi</h3>
+							<p>
+								Date Requested: 3/28/17 1:45pm
+							</p>
+							<p>
+								Reason for visit:
+							</p>
+							<p class="blue">
+								More info
+							</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#pharm_home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+					<li><a href="#" class="ui-btn ui-icon-star ui-btn-icon-left">Feedback</a></li>
+					<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left">Contact</a></li>
+					<li><a href="#login" class="ui-btn ui-icon-lock ui-btn-icon-left">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="manage_appt2">
+		<div id="purplediv">
+			<p> Manage Appointments </p>
+		</div>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#manage_appt">Recent Appts</a></li>
+				<li><a href="#manage_appt2" class="ui-btn-active ui-state-persist">Completed</a></li>
+				<li><a href="#manage_appt3">Current Appts</a></li>
+			</ul>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview">
+				<li data-role="list-divider">Completed Appointments</li>
+				<li>John Doe, Completed on: 4/6/17</li>
+				<li>Sally Smith, Completed on: 4/5/17</li>
+				<li>Megan Smith, Completed on: 4/5/17</li>
+				<li>Beyonce Knowles, Completed on: 4/3/17</li>
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#pharm_home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+					<li><a href="#" class="ui-btn ui-icon-star ui-btn-icon-left">Feedback</a></li>
+					<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left">Contact</a></li>
+					<li><a href="#login" class="ui-btn ui-icon-lock ui-btn-icon-left">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+		<div data-role="page" id="manage_appt3">
+		<div id="purplediv">
+			<p> Manage Appointments </p>
+		</div>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#manage_appt">Recent Appts</a></li>
+				<li><a href="#manage_appt2">Completed</a></li>
+				<li><a href="#manage_appt3" class="ui-btn-active ui-state-persist">Current Appts</a></li>
+			</ul>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview">
+				<li data-role="list-divider">Current Appointments</li>
+				<li>John Doe, Time: 1:50pm Date: 4/6/17</li>
+				<li>Sally Smith, Time: 3:00pm Date: 4/6/17</li>
+				<li>Megan Smith, Time: 6:00pm Date:: 4/6/17</li>
+				<li>Beyonce Knowles, Time: 9:30pm Date: 4/6/17</li>
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#pharm_home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+					<li><a href="#" class="ui-btn ui-icon-star ui-btn-icon-left">Feedback</a></li>
+					<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left">Contact</a></li>
+					<li><a href="#login" class="ui-btn ui-icon-lock ui-btn-icon-left">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="process_rx">
+		<div id="purplediv">
+			<p> Process Refills </p>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview">
+				<li data-role="list-divider">Pending Requests</li>
+				<li><img src="adesola.jpg">Adesola Sanusi</li>
+				<li><img src="stan.jpg">Stan Matoreva</li>
+				<li><img src="me.jpg">Danielle Okezie</li>
+				<li data-role="list-divider">Completed Requests</li>
+				<li>"Advair" for John Smith</li>
+				<li>"Singulair" for Claire Doe</li>
+				<li>"Actos" for Jessie Li</li>
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#pharm_home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+					<li><a href="#" class="ui-btn ui-icon-star ui-btn-icon-left">Feedback</a></li>
+					<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left">Contact</a></li>
+					<li><a href="#login" class="ui-btn ui-icon-lock ui-btn-icon-left">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="manage_pickups">
+		<div id="purplediv">
+			<p> Manage Pickups </p>
+		</div>
+		<div data-role="main" class="ui-content">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#" class="ui-btn-active">ORDERS COMPLETED</a></li>
+				</ul>
+			</div>
+			<div data-role="listview" data-inset="true">
+				<li data-icon="mail"><a href="#">Jack Smith</a></li>
+			</div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#" class="ui-btn-active">PENDING ORDERS</a></li>
+				</ul>
+			</div>
+			<div data-role="listview" data-inset="true">
+				<li data-icon="forward"><a href="#">Bob Doe</a></li>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#pharm_home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a></li>
+					<li><a href="#" class="ui-btn ui-icon-star ui-btn-icon-left">Feedback</a></li>
+					<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left">Contact</a></li>
+					<li><a href="#login" class="ui-btn ui-icon-lock ui-btn-icon-left">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

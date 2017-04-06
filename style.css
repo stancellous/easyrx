@@ -1,0 +1,122 @@
+/******* General Style *******/
+
+body,
+html {
+	width: 100%;
+	height: 100%;
+	text-rendering: optimizeLegibility !important;
+	-webkit-font-smoothing: antialiased !important;
+}
+
+[data-role=page] {
+	background-color: white !important;
+	margin: auto;
+	text-align: center;
+}
+
+ul {
+	list-style-type: none;
+	display: inline-block;
+}
+
+li {
+	display: inline;
+}
+
+a {
+	text-decoration: none;
+	color: #8D74B1;
+}
+
+
+/******* Headers *******/
+
+h1 {
+	font-weight: 600;
+	font-size: 60px;
+	text-align: center;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	color: #8D74B1;
+}
+
+h2 {
+	font-size: 30px;
+	color: white;
+	background-color: #8D74B1;
+}
+
+.bold {
+	font-weight: 600;
+	font-size: 15px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+p.blue {
+	color: blue !important;
+	font-weight: 900 !important;
+}
+
+
+/******* Navbar Footer *******/
+
+[data-role=footer] {
+	display: block;
+	border-top: 5px solid black;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	text-align: center;
+}
+
+
+/******* Content *******/
+.cente {
+	margin: 0 auto !important;
+}
+div.ui-input-text {
+	width: 250px !important;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 8px;
+}
+
+.ui-field-contain {
+	margin: auto;
+}
+
+.small {
+	width: 150px !important;
+	background-color: #8D74B1 !important;
+	color: white !important;
+}
+
+fieldset {
+	margin: auto;
+	text-align: center;
+}
+
+.cent {
+	text-align: center;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+.img_caption {
+	width: 100%;
+	text-align: center;
+}
+
+#purplediv {
+	vertical-align: middle;
+	line-height: 60px; 
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	background-color: #8D74B1;
+	font-size: 25px;
+	color: #fff;
+}
