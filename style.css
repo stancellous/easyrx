@@ -8,6 +8,12 @@ html {
 	-webkit-font-smoothing: antialiased !important;
 }
 
+.custom_button{
+	width: 200px;
+	text-align: center;
+	float: center;
+}
+
 [data-role=page] {
 	background-color: white !important;
 	margin: auto;
@@ -120,3 +126,5 @@ img {
 	font-size: 25px;
 	color: #fff;
 }
+
+
