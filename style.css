@@ -36,13 +36,20 @@ a {
 
 
 /******* Headers *******/
-
 h1 {
 	font-weight: 600;
 	font-size: 60px;
 	text-align: center;
 	font-family: Georgia, Times, "Times New Roman", serif;
-	color: #8D74B1;
+	color: #8D74B1 !important;
+}
+
+h1.cool {
+	font-weight: 600;
+	font-size: 60px;
+	text-align: center;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	color: white !important;
 }
 
 h2 {
@@ -97,6 +104,15 @@ div.ui-input-text {
 	color: white !important;
 }
 
+
+img.smalls {
+	width: 50% !important;
+	height: 50% !important;
+}
+
+p.smaller {
+	font-size: 15px !important;
+}
 fieldset {
 	margin: auto;
 	text-align: center;
@@ -126,5 +142,34 @@ img {
 	font-size: 25px;
 	color: #fff;
 }
+
+/******* Patients *******/
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.container {
+  padding: 0 16px;
+	margin-bottom: 50px;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+
+/******* H
 
 

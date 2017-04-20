@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>EaZyRx</title>
+	<!--update view based on the device-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--get jquery mobile libraries and css-->
+	<link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" href="purple.min.css" />
+	<link rel="stylesheet" href="jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="eazy.js"></script>
+</head>
+
+<body>
+	<!--login page (patient)-->
+	<div data-role="page" id="login" data-theme="a">
+		<div data-role="main" class="ui-content" data-theme="a">
+			<h1>EaZyRx</h1>
+			<p class="bold"> Login as </p>
+			<ul data-role="controlgroup" data-type="horizontal" class="localnav">
+				<li><a href="#login" data-role="button" data-transition="fade" class="ui-btn-active">Patient</a></li>
+				<li><a href="#login2" data-role="button" data-transition="fade">Pharmacist</a></li>
+			</ul>
+			<form method="post" action="#patient_home">
+				<div class="ui-field-contain">
+					<input type="text" name="fullname" id="fullname" placeholder="Username">
+					<input type="password" name="password" id="password" placeholder="Password">
+				</div>
+				<a href="#patient_home" data-inline="true" class="small" data-role="button">Login</a>
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed" class="cent">
+			<p> Don't have an account? <a href="#patient_home">Sign Up.</a> </p>
+		</div>
+		<p> Forgot your password? <a href="#manage_appt">Retrieve here</a> </p>
+	</div>
+
+	<!--login page (pharmacist)-->
+	<div data-role="page" id="login2" data-theme="a">
+		<div data-role="main" class="ui-content" data-theme="a">
+			<h1>EaZyRx</h1>
+			<p class="bold"> Login as </p>
+			<ul data-role="controlgroup" data-type="horizontal" class="localnav">
+				<li><a href="#login" data-role="button" data-transition="fade">Patient</a></li>
+				<li><a href="#login2" data-role="button" data-transition="fade" class="ui-btn-active">Pharmacist</a></li>
+			</ul>
+			<form method="post" action="#patient_home">
+				<div class="ui-field-contain">
+					<input type="text" name="fullname" id="fullname" placeholder="Username">
+					<input type="password" name="password" id="password" placeholder="Password">
+				</div>
+				<a href="#pharm_home" data-inline="true" class="small" data-role="button">Login</a>
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed" class="cent">
+			<p> Don't have an account? <a href="#patient_home">Sign Up.</a> </p>
+		</div>
+		<p> Forgot your password? <a href="#manage_appt">Retrieve here</a> </p>
+	</div>
+
+	<!--main menu (patient)-->
+	<div data-role="page" id="patient_home">
+		<h1>EaZyRx</h1>
+		<ul data-role="listview">
+			<li><img src="user.png">Jane Doe<br>jane.doe@email.com</li>
+		</ul>
+		<div data-role="content">
+			<a href="#see_rx" class="ui-btn">My Prescriptions</a>
+			<a href="#payment" class="ui-btn">My Info</a>
+			<a href="#appointments" class="ui-btn">Consultation</a>
+			<a href="#login" class="ui-btn">Logout</a>
+		</div>
+	</div>
+
+	<!--main menu (pharmacist)-->
+	<div data-role="page" id="pharm_home">
+		<h1>EaZyRx</h1>
+		<ul data-role="listview">
+			<li>
+				<img src="user.png"> Joe Schmoe<br> joe.schmoe@pharmacy.com
+				<br> License #: 2857738
+			</li>
+		</ul>
+		<div data-role="content">
+			<a href="#see_prescriptions" class="ui-btn">Prescriptions</a>
+			<a href="#manage_appt" class="ui-btn">Consultation</a>
+			<a href="#login2" class="ui-btn">Logout</a>
+		</div>
+	</div>
+
+	<!-- prescriptions (patient)-->
+	<div data-role="page" id="see_rx">
+		<div data-theme="b" data-role="header">
+			<a class="ui-btn ui-icon-back ui-btn-icon-left" data-rel="back"></a>
+			<div id="purplediv">
+				<p>See Prescriptions</p>
+			</div>
+		</div>
+		<div data-role="content" id="meds">
+		</div>
+	</div>
+
+	<!-- prescriptions (pharmacist)-->
+	<div data-role="page" id="see_prescriptions">
+		<div data-theme="b" data-role="header">
+			<a class="ui-btn ui-icon-back ui-btn-icon-left" data-rel="back"></a>
+			<div id="purplediv">
+				<p>See Prescriptions</p>
+			</div>
+		</div>
+		<div data-role="content" id="prescriptions">
+		</div>
+	</div>
+
+	<!-- prescriptions: add new prescription by scanner (patient)-->
+	<div data-role="page" id="refill">
+		<div data-theme="b" data-role="header">
+			<a class="ui-btn ui-icon-back ui-btn-icon-left" data-rel="back"></a>
+			<div id="purplediv">
+				<p> Fill Prescriptions </p>
+			</div>
+		</div>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#refill" class="ui-btn-active ui-state-persist">Scan It</a></li>
+				<li><a href="#refill2">Manual Entry</a></li>
+			</ul>
+		</div>
+		<div data-role="content">
+			<img src="camera.png" />
+			<div class="img_caption">Capture Barcode with Camera</div>
+		</div>
+	</div>
+
+	<!-- prescriptions: add new prescription by input (patient)-->
+	<div data-role="page" id="refill2">
+		<div data-theme="b" data-role="header">
+			<a class="ui-btn ui-icon-back ui-btn-icon-left" data-rel="back"></a>
+			<div id="purplediv">
+				<p> Fill Prescriptions </p>
+			</div>
+		</div>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#refill">Scan It</a></li>
+				<li><a href="#refill2" class="ui-btn-active ui-state-persist">Manual Entry</a></li>
+			</ul>
+		</div>
+		<div data-role="content">
+			<form method="post" action="">
+				<label for="date">Date of Issue</label>
+				<input type="date" name="date" id="date">
+				<label for="doctor">Practitioner's Name</label>
+				<input type="text" name="doctor" id="doctor" placeholder="Dr. Joe Smith">
+				<label for="date">Drug Name</label>
+				<input type="text" name="drug" id="drug" placeholder="Asmanex">
+				<label for="dosage">Dosage</label>
+				<input type="text" name="dosage" id="dosage" placeholder="220mcg; 1 puff daily">
+				<button><a href="#refillDialog">Submit Request</a></button>
+			</form>
+		</div>
+	</div>
+
+	<!-- prescriptions: refill confirmation dialog (patient)-->
+	<div data-role="page" id="refillDialog" data-dialog="true">
+	</div>
+
+	<!-- prescriptions: request pick up code (patient)-->
+	<div data-role="page" id="pickups">
+		<div data-theme="b" data-role="header">
+			<a class="ui-btn ui-icon-back ui-btn-icon-left" data-rel="back"></a>
+			<div id="purplediv">
+				<p>Pickups</p>
+			</div>
+		</div>
+		<div data-role="content" id="pickup_meds">
+		</div>
+	</div>
+
+	<!-- prescriptions: pick up code (patient)-->
+	<div data-role="page" id="request_code">
+		<div data-theme="b" data-role="header">
+			<a class="ui-btn ui-icon-back ui-btn-icon-left" data-rel="back"></a>
+			<div id="purplediv">
+				<p>Pick up Code</p>
+			</div>
+		</div>
+		<div data-role="content">
+			<p>Present to Pharmacist</p>
+			<img src="scan.png" />
+			<h3>OR<br>Enter Pickup Code: <br>12345</h3>
+		</div>
+	</div>
+	
+	<!-- info: payment info (patient)-->
+	<div data-role="page" id="payment">
+		<div data-theme="b" data-role="header">
+			<a class="ui-btn ui-icon-back ui-btn-icon-left" data-rel="back"></a>
+			<div id="purplediv"><p>Payment</p></div>
+		</div>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#payment" class="ui-btn-active ui-state-persist">Payment</a></li>
+				<li><a href="#insurance">Insurance</a></li>
+			</ul>
+		</div>
+		<div data-role="content">
+			<form method="post" action="">
+				<label style="text-align: left; font-weight: bold;" for="date">Active:</label>
+				<img src="Mastercard.png" alt="Mastercard" width="150px">
+				<label style="text-align: left; font-weight: bold;" for="date">Inactive:</label>
+				<img src="Visa.png" alt="Visa" width="150px">
+				<button>
+					<a href = "#payment_info">Add Payment Method</a>
+				</button>
+			</form>
+		</div>
+	</div>
+	
+	<!-- info: confirmation dialog after payment change (patient)-->
+	<div data-role="page" data-dialog="true" id="payment_info">
+		<div data-role="header">
+			<h3>Please enter your <br> payment information</h3>
+		</div>
+		<div data-role="content">
+			<form method="post" action="">
+				<div class="ui-field-contain">
+					<label style="text-align: left; font-weight: bold;" for="select-native-1">Card Company:</label>
+					<select name="select-native-1" id="select-native-1" data-mini="true">
+						<option value="1">Visa</option>
+						<option value="2">MasterCard</option>
+						<option value="3">American Express</option>
+						<option value="4">Discover</option>
+					</select>
+				</div>
+				<label style="text-align: left; font-weight: bold;" for="number"></label>
+				<input type="text" name="number" id="number" placeholder="Credit Card Number">
+				<label style="text-align: left; font-weight: bold;" for="code"></label>
+				<input type="text" name="code" id="code" placeholder="Security Code">
+				<label style="text-align: left; font-weight: bold;" for="date">Expiration Date</label>
+				<input type="month" name="month" id="month">
+				<button><a href="#patient_home">Add Payment Method</a></button>
+			</form>
+		</div>
+	</div>
+	
+	<!-- info: insurance info (patient)-->
+	<div data-role="page" id="insurance">
+		<div data-theme="b" data-role="header">
+			<a class="ui-btn ui-icon-back ui-btn-icon-left" data-rel="back"></a>
+			<div id="purplediv"><p>Insurance</p></div>
+		</div>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#payment">Payment</a></li>
+				<li><a href="#insurance" class="ui-btn-active ui-state-persist">Insurance</a></li>
+			</ul>
+		</div>
+		<div data-role="content">
+			<form method="post" action="">
+				<label style="text-align: left; font-weight: bold;" for="date">Active:</label>
+				<img src="Blue Cross.png" alt="Blue Cross" width="150px">
+				<label style="text-align: left; font-weight: bold;" for="date">Inactive:</label>
+				<img src="HAP.png" alt="HAP" width="150px">
+				<button><a href="#insurance_info">Add Insurance Card</a></button>
+			</form>
+		</div>
+	</div>
+
+	<!-- info: confirmation dialog after insurance change (patient)-->
+	<div data-role="page" data-dialog="true" id="insurance_info">
+		<div data-role="header">
+			<h3>Please enter your <br> insurance information</h3>
+		</div>
+		<div data-role="content">
+			<form method="post" action="">
+				<label style="text-align: left; font-weight: bold;" for="date">Birth Date</label>
+				<input type="date" name="date" id="date">
+				<label style="text-align: left; font-weight: bold;" for="id_number"></label>
+				<input type="text" name="id_number" id="id_number" placeholder="ID Number">
+				<label style="text-align: left; font-weight: bold;" for="group_id"></label>
+				<input type="text" name="group_id" id="group_id" placeholder="Group ID">
+				<label style="text-align: left; font-weight: bold;" for="RxBar"></label>
+				<input type="text" name="RxBar" id="RxBar" placeholder="RxBar">
+				<label style="text-align: left; font-weight: bold;" for="RxPCN"></label>
+				<input type="text" name="RxPCN" id="RxPCN" placeholder="RxPCN">
+				<label style="text-align: left; font-weight: bold;" for="RxGroup"></label>
+				<input type="text" name="RxGroup" id="RxGroup" placeholder="RxGroup">
+				<button><a href="#patient_home">Submit</a></button>
+			</form>
+		</div>
+	</div>
+	
+	<!-- consultation: submit an appointment request (patient)-->
+	<div data-role="page" id="appointments">
+		<div data-theme="b" data-role="header">
+			<a class="ui-btn ui-icon-back ui-btn-icon-left" data-rel="back"></a>
+			<div id="purplediv">
+				<p>Setup an Appointment</p>
+			</div>
+		</div>
+		<div data-role="content">
+			<form method="post" action="">
+				<label style="text-align: left; font-weight: bold;">Name:</label>
+				<input type="text" name="name" id="name" placeholder="John Doe" required>
+				<label style="text-align: left; font-weight: bold;">Date:</label>
+				<input type="date" name="date" id="date">
+				<div class="ui-field-contain">
+					<label style="text-align: left; font-weight: bold;" for="select-native-1">Select a Pharmacist:</label>
+					<select name="select-native-1" id="select-native-1" data-mini="true" required>
+        		<option value="1">Jane Smith</option>
+        		<option value="2">Ronald McDonald</option>
+        		<option value="3">Barack Obama</option>
+        		<option value="4">Joe Black</option>
+    			</select>
+				</div>
+				<div data-role="fieldcontain">
+					<label style="text-align: left; font-weight: bold;" for="textarea">Reason for visit:</label>
+					<textarea name="textarea" id="textarea" placeholder="i.e: Need to talk about medicine symptoms" required></textarea>
+				</div>
+				<button><a href="#dialogAppt">Submit</a></button>
+			</form>
+		</div>
+	</div>
+
+	<!-- consultation: appointment confirmation dialog (patient)-->
+	<div data-role="page" id="dialogAppt" data-dialog="true">
+		<div data-role="header" data-theme="a">
+			<h3>Confirm</h3>
+		</div>
+
+		<div role="main" class="ui-content">
+			<p>Please confirm below that you want to make this appointment.</p>
+			<a href="#patient_home" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-a">Yes</a>
+			<a href="#appointments" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-a">No</a>
+		</div>
+	</div>
+
+	<!-- consultation: manage appointments, part 1 (pharmacist)-->
+	<div data-role="page" id="manage_appt">
+		<div data-theme="b" data-role="header">
+			<a class="ui-btn ui-icon-back ui-btn-icon-left" data-rel="back"></a>
+			<div id="purplediv">
+				<p>Manage Appointments</p>
+			</div>
+		</div>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#manage_appt" class="ui-btn-active ui-state-persist">Recent Appts</a></li>
+				<li><a href="#manage_appt3">Current Appts</a></li>
+			</ul>
+		</div>
+		<div role="main" class="ui-content" id="people">
+		</div>
+		<div data-role="content">
+			<div data-role="fieldcontain">
+				<ul data-role="listview" data-inset="true" id="people">
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- consultation: confirmation dialog to approve appointment (pharmacist)-->
+	<div data-role="page" id="more" data-dialog="true">
+		<div data-role="header" data-theme="a">
+			<h3>Confirm</h3>
+		</div>
+
+		<div role="main" class="ui-content">
+			<p>Please confirm below that you want to setup the appointment with the patient. </p>
+			<a href="#pharm_home" onclick="acceptPatient()" class="ui-btn ui-shadow ui-corner-all ui-btn-a">Yes</a>
+			<a href="#manage_appt" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-a">No</a>
+		</div>
+	</div>
+
+	<!-- consultation: manage appointments, part 2 (pharmacist)-->
+	<div data-role="page" id="manage_appt3">
+		<div data-theme="b" data-role="header">
+			<a class="ui-btn ui-icon-back ui-btn-icon-left" data-rel="back"></a>
+			<div id="purplediv">
+				<p>Manage Appointments</p>
+			</div>
+		</div>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#manage_appt">Recent Appts</a></li>
+				<li><a href="#manage_appt3" class="ui-btn-active ui-state-persist">Current Appts</a></li>
+			</ul>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview" data-inset="true">
+      <li data-role="divider">Patients</li>
+      <li>
+        <a href="#">
+        <img src="stephen.jpg">
+        <h3>Billy Bob</h3>
+        </a>
+        <a href="#download" data-transition="pop" data-icon="check"></a>
+      </li>
+      <li>
+        <a href="#">
+        <img src="stan.jpg">
+        <h3>John Smhoe</h3>
+        </a>
+        <a href="#download" data-transition="pop" data-icon="check"></a>
+      </li>
+    </ul>
+		</div>
+	</div>
+
+	<!-- prescriptions: confirmation dialog for notify patient (pharmacist)-->
+	<div data-role="page" data-dialog="true" id="notify_patient">
+		<div data-role="header">
+			<h3>Confirmation of <br> Pick Up!</h3>
+		</div>
+		<div data-role="main" class="ui-content">
+			<p>Would you like to notify Stephen that his nexium, order number: 78537 is ready for pick up?</p>
+		</div>
+		<div data-role="listview" data-inset="true">
+			<li><a href="#pharm_home">Yes</a></li>
+			<li><a href="#pharm_home">No</a></li>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h3>EaZyRx</h3>
+		</div>
+	</div>
+
+	<!-- prescriptions: confirmation dialog for refill request (pharmacist)-->
+	<div data-role="page" data-dialog="true" id="approve_request">
+		<div data-role="header">
+			<h3>Approve Request</h3>
+		</div>
+		<div data-role="main" class="ui-content">
+			<p>Would you like to approve the Stan's request for Lipitor, order number: 89674? </p>
+		</div>
+		<div data-role="listview" data-inset="true">
+			<li><a href="#pharm_home">Yes</a></li>
+			<li><a href="#pharm_home">No</a></li>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<h3>EaZyRx</h3>
+		</div>
+	</div>
+</body>
+
+</html>
