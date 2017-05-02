@@ -34,6 +34,13 @@ a {
 	color: #8D74B1;
 }
 
+.logo {
+    margin: auto;
+    width: 30%;
+    height: 30%;
+		margin-top:-0.5cm;
+		padding-bottom: 20px;
+}
 
 /******* Headers *******/
 h1 {
@@ -84,7 +91,7 @@ p.blue {
 
 
 /******* Content *******/
-.cente {
+.center {
 	margin: 0 auto !important;
 }
 div.ui-input-text {
@@ -167,6 +174,10 @@ img {
 .title {
   color: grey;
   font-size: 18px;
+}
+
+#form_color {
+	background: #F9F7F6 !important;
 }
 
 
